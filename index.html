@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan Soal HOTS TKA Biologi SMA - Proses pada Makhluk Hidup (Sistem Organ Manusia)</title>
+    <style>
+        :root {
+            --primary: #0f172a;
+            --primary-light: #2563eb;
+            --secondary: #0d9488;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --tag-bg: #e0f2fe;
+            --tag-text: #0369a1;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            margin: 0;
+            padding: 24px 16px;
+        }
+
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            color: white;
+            padding: 32px 24px;
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 28px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0 0 10px 0;
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        header p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 14px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .btn {
+            background-color: var(--primary-light);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .btn:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background-color: #0f766e;
+        }
+
+        .question-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+        }
+
+        .question-header {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .question-number {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+
+        .topic-tag {
+            background-color: var(--tag-bg);
+            color: var(--tag-text);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .question-text {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 18px;
+            text-align: justify;
+            color: #0f172a;
+        }
+
+        .options-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0 0 18px 0;
+        }
+
+        .option-item {
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            background-color: #f8fafc;
+            display: flex;
+            align-items: flex-start;
+            font-size: 14px;
+            transition: background-color 0.15s ease;
+        }
+
+        .option-item:hover {
+            background-color: #f1f5f9;
+        }
+
+        .option-label {
+            font-weight: 700;
+            margin-right: 12px;
+            color: var(--primary-light);
+            min-width: 20px;
+        }
+
+        .explanation-toggle {
+            background: none;
+            border: none;
+            color: var(--primary-light);
+            font-weight: 600;
+            cursor: pointer;
+            padding: 4px 0;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .explanation-toggle:hover {
+            text-decoration: underline;
+            color: #1d4ed8;
+        }
+
+        .explanation-box {
+            display: none;
+            margin-top: 16px;
+            padding: 18px;
+            background-color: #f0fdf4;
+            border-left: 4px solid var(--secondary);
+            border-radius: 0 8px 8px 0;
+            font-size: 14px;
+            color: #166534;
+        }
+
+        .explanation-box.active {
+            display: block;
+        }
+
+        .correct-answer {
+            font-weight: 700;
+            color: #15803d;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .explanation-content {
+            color: #1e293b;
+            text-align: justify;
+        }
+
+        @media print {
+            .action-buttons, .explanation-toggle {
+                display: none !important;
+            }
+            .explanation-box {
+                display: block !important;
+                background-color: #f8fafc;
+                border-left-color: #475569;
+                color: #0f172a;
+            }
+            body {
+                background-color: white;
+                padding: 0;
+            }
+            .question-card {
+                break-inside: avoid;
+                border: 1px solid #cbd5e1;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Paket Soal HOTS TKA Biologi SMA</h1>
+        <p>Materi Utama: Proses-Proses pada Makhluk Hidup (Integrasi Sistem Sirkulasi, Respirasi, Ekskresi, Imun, Koordinasi Saraf & Hormon, serta Reproduksi Manusia)</p>
+    </header>
+
+    <div class="action-buttons">
+        <button class="btn btn-secondary" onclick="toggleAllExplanations()">Tampilkan/Sembunyikan Pembahasan</button>
+        <button class="btn" onclick="window.print()">Cetak / Simpan ke PDF</button>
+    </div>
+
+    <!-- Soal 1 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 1</span>
+            <span class="topic-tag">Integrasi Sirkulasi - Respirasi - Ekskresi</span>
+        </div>
+        <div class="question-text">
+            Seorang pasien mengalami gagal jantung kongestif bagian kiri. Kondisi ini menyebabkan penurunan kemampuan ventrikel kiri dalam memompa darah ke seluruh tubuh, sehingga darah menumpuk di atrium kiri dan pembuluh vena pulmonalis. Berdasarkan analisis gangguan interaksi antarsistem organ, apakah dampak sekunder langsung dari kondisi ini terhadap sistem respirasi dan ekskresi pasien tersebut?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Terjadi edema paru akibat peningkatan tekanan hidrostatik kapiler paru dan penurunan laju filtrasi glomerulus ginjal akibat penurunan perfusi darah sistemik.</li>
+            <li class="option-item"><span class="option-label">B.</span> Peningkatan laju filtrasi glomerulus ginjal akibat peningkatan sekresi hormon aldosteron dan efusi pleura.</li>
+            <li class="option-item"><span class="option-label">C.</span> Penurunan kadar karbon dioksida dalam darah akibat hiperventilasi alveolar dan peningkatan reabsorpsi glukosa ginjal.</li>
+            <li class="option-item"><span class="option-label">D.</span> Kerusakan dinding alveolus akibat infeksi bakteri sekunder dan penurunan produksi urine akibat inhibisi hormon ADH.</li>
+            <li class="option-item"><span class="option-label">E.</span> Peningkatan ekspansi paru-paru akibat vasodilatasi pembuluh darah sistemik dan pelepasan eritropoietin masif.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(1)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-1">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Gagal jantung kiri menyebabkan penumpukan darah di sirkulasi paru-paru. Hal ini meningkatkan tekanan hidrostatik dalam kapiler paru, mendorong cairan merembes ke ruang interstitial dan alveolus sehingga memicu edema paru (respirasi terganggu). Pada saat yang sama, penurunan curah jantung (cardiac output) mengurangi aliran darah ke ginjal, menurunkan laju filtrasi glomerulus (GFR), memicu retensi cairan, dan menurunkan produksi urine.
+            </div>
+        </div>
+    </div>
+
+    <!-- Soal 2 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 2</span>
+            <span class="topic-tag">Integrasi Sirkulasi - Respirasi - Ekskresi</span>
+        </div>
+        <div class="question-text">
+            Seseorang yang mengalami muntah hebat dan berkepanjangan kehilangan sejumlah besar asam klorida (HCl) dari lambungnya. Hal ini menyebabkan terjadinya alkalosis metabolik (peningkatan pH darah di atas normal). Bagaimanakah respons kompensasi terintegrasi yang dilakukan oleh sistem respirasi dan sistem ekskresi untuk mengembalikan pH darah ke rentang normal?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Paru-paru meningkatkan laju pernapasan (hiperventilasi) dan ginjal meningkatkan sekresi ion hidrogen ke dalam urine.</li>
+            <li class="option-item"><span class="option-label">B.</span> Paru-paru menurunkan laju pernapasan (hipoventilasi) untuk menahan karbon dioksida, sementara ginjal mengekskresikan ion bikarbonat dan menahan ion hidrogen.</li>
+            <li class="option-item"><span class="option-label">C.</span> Paru-paru menahan ion bikarbonat dan ginjal menyerap kembali gas karbon dioksida dari tubulus proksimal.</li>
+            <li class="option-item"><span class="option-label">D.</span> Ginjal meningkatkan sekresi amonia dan paru-paru meregangkan otot diafragma secara konstan.</li>
+            <li class="option-item"><span class="option-label">E.</span> Sistem sirkulasi menghentikan sekresi hemoglobin dan paru-paru melepaskan asam karbonat langsung ke udara bebas.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(2)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-2">
+            <div class="correct-answer">Kunci Jawaban: B</div>
+            <div class="explanation-content">
+                Pada alkalosis metabolik (pH darah tinggi karena kehilangan asam), tubuh melakukan kompensasi: (1) Sistem respirasi menurunkan laju pernapasan (hipoventilasi) agar gas CO2 tertahan di darah, meningkatkan asam karbonat untuk menurunkan pH; (2) Sistem ekskresi (ginjal) mengurangi reabsorpsi bikarbonat (HCO3-) dan mengekskresikannya ke urine, serta menahan ion H+ untuk menurunkan pH darah kembali ke rentang fisiologis.
+            </div>
+        </div>
+    </div>
+
+    <!-- Soal 3 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 3</span>
+            <span class="topic-tag">Integrasi Sirkulasi - Respirasi - Ekskresi</span>
+        </div>
+        <div class="question-text">
+            Seorang pasien penderita penyakit ginjal kronis derajat akhir menunjukkan gejala anemia berat dan hipertensi sistemik. Hasil tes laboratorium menunjukkan kadar eritrosit yang sangat rendah serta pembengkakan cairan di ekstremitas tubuh. Apakah analisis keterkaitan fungsi organ yang paling logis mendasari kemunculan kedua kondisi klinis tersebut secara bersamaan?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Kerusakan parenkim ginjal menurunkan produksi hormon eritropoietin sehingga pembentukan eritrosit terhambat, sekaligus memicu hiperaktivitas sistem Renin-Angiotensin-Aldosteron yang memicu retensi garam dan air.</li>
+            <li class="option-item"><span class="option-label">B.</span> Ginjal mengekskresikan terlalu banyak zat besi ke dalam urine sehingga eritrosit hancur, diikuti oleh penurunan tekanan arteri ginjal yang menghentikan kerja jantung.</li>
+            <li class="option-item"><span class="option-label">C.</span> Kegagalan ginjal menyaring hemoglobin menyebabkan eritrosit mengendap di paru-paru dan memicu penurunan volume plasma darah secara Drastis.</li>
+            <li class="option-item"><span class="option-label">D.</span> Kerusakan tubulus ginjal menghentikan sekresi bilirubin sehingga sel darah merah teroksidasi dan pembuluh darah melebar tanpa batas.</li>
+            <li class="option-item"><span class="option-label">E.</span> Ginjal menyerap kembali racun urea berlebih yang menghancurkan sumsum tulang belakang dan merusak katup jantung.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(3)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-3">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Ginjal berperan penting dalam dua hal: (1) Menghasilkan hormon eritropoietin (EPO) yang merangsang eritropoiesis di sumsum tulang. Kerusakan ginjal menurunkan EPO sehingga timbul anemia. (2) Mengatur volume cairan dan tekanan darah. Kerusakan jaringan ginjal menurunkan filtrasi serta mengaktifkan sistem Renin-Angiotensin-Aldosteron (RAAS) secara berlebihan, menyebabkan retensi sodium/air dan vasokonstriksi yang memicu hipertensi.
+            </div>
+        </div>
+    </div>
+
+    <!-- Soal 4 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 4</span>
+            <span class="topic-tag">Integrasi Sirkulasi - Respirasi - Ekskresi</span>
+        </div>
+        <div class="question-text">
+            Seseorang yang berlari maraton di cuaca terik tanpa minum mengalami dehidrasi berat. Kondisi ini berdampak langsung pada volume dan viskositas darah. Manakah respons terintegrasi yang paling tepat dilakukan oleh sistem organ tubuh untuk mempertahankan homeostasis osmotik dan hemodinamik?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Hipotalamus merangsang pelepasan ADH untuk meningkatkan reabsorpsi air di tubulus ginjal, sementara denyut jantung meningkat untuk mengompensasi penurunan volume sekuncup.</li>
+            <li class="option-item"><span class="option-label">B.</span> Kelenjar adrenal menghentikan produksi aldosteron agar air keluar dari ginjal dan laju pernapasan diturunkan serendah mungkin.</li>
+            <li class="option-item"><span class="option-label">C.</span> Ginjal menghentikan filtrasi plasma darah secara permanen dan atrium jantung melepaskan hormon ANP dalam jumlah besar.</li>
+            <li class="option-item"><span class="option-label">D.</span> Pembuluh darah arteri melebar secara masif (vasodilatasi) dan paru-paru melepaskan Uap air lebih banyak melalui hiperventilasi.</li>
+            <li class="option-item"><span class="option-label">E.</span> Sel darah merah membelah secara cepat untuk mengencerkan plasma darah dan laju filtrasi glomerulus meningkat pesat.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(4)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-4">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Dehidrasi memicu peningkatan osmolaritas darah dan penurunan volume darah. Osmoreseptor hipotalamus mendeteksi ini dan memicu kelenjar hipofisis posterior melepas Anti-Diuretic Hormone (ADH) untuk meningkatkan reabsorpsi air di tubulus ginjal (urine pekat & sedikit). Pada sistem sirkulasi, penurunan volume darah menurunkan stroke volume (volume sekuncup), sehingga jantung meningkatkan frekuensi denyutnya untuk mempertahankan tekanan darah dan perfusi jaringan.
+            </div>
+        </div>
+    </div>
+
+    <!-- Soal 5 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 5</span>
+            <span class="topic-tag">Integrasi Sirkulasi - Respirasi - Ekskresi</span>
+        </div>
+        <div class="question-text">
+            Sebagian besar karbon dioksida hasil metabolisme sel di jaringan tubuh diangkut oleh darah menuju paru-paru dalam bentuk ion bikarbonat. Reaksi pembentukan ion bikarbonat ini dikatalisis oleh enzim karbonat anhidrase di dalam sel darah merah. Bagaimanakah keterkaitan proses biokimia ini dengan pelepasan oksigen dari hemoglobin ke jaringan tubuh (Efek Bohr)?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Pembentukan asam karbonat meningkatkan konsentrasi ion H+ (menurunkan pH), yang mengurangi afinitas hemoglobin terhadap oksigen sehingga oksigen lebih mudah dilepaskan ke jaringan.</li>
+            <li class="option-item"><span class="option-label">B.</span> Pembentukan ion bikarbonat meningkatkan pH darah sehingga hemoglobin mengikat oksigen lebih kuat dan menahannya di dalam pembuluh darah.</li>
+            <li class="option-item"><span class="option-label">C.</span> Ion bikarbonat bersaing langsung dengan oksigen untuk menempati gugus heme pada molekul hemoglobin.</li>
+            <li class="option-item"><span class="option-label">D.</span> Enzim karbonat anhidrase menghancurkan ikatan kovalen antara heme dan zat besi di jaringan yang kekurangan oksigen.</li>
+            <li class="option-item"><span class="option-label">E.</span> Karbon dioksida menggantikan peran plasma darah sebagai pelarut utama molekul oksigen bebas.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(5)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-5">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Di jaringan metabolik aktif, CO2 masuk ke eritrosit dan diubah oleh karbonat anhidrase menjadi H2CO3 yang terdisosiasi menjadi H+ dan HCO3-. Peningkatan ion H+ menurunkan pH darah lokal. Penurunan pH ini mengganggu struktur konformasi hemoglobin, menurunkan afinitasnya terhadap oksigen (Efek Bohr), sehingga hemoglobin dengan mudah melepaskan O2 ke sel-sel jaringan yang membutuhkan.
+            </div>
+        </div>
+    </div>
+
+    <!-- Soal 6 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 6</span>
+            <span class="topic-tag">Mekanisme Kerja Sistem Imun</span>
+        </div>
+        <div class="question-text">
+            Vaksinasi berbasis messenger RNA (mRNA) bekerja dengan cara memasukkan instruksi genetik sintetik agar sel tubuh manusia memproduksi protein duri (spike protein) patogen secara mandiri untuk sementara waktu. Manakah urutan mekanisme respons imun adaptif yang paling tepat hingga terbentuk memori imunologis jangka panjang setelah pemberian vaksin tersebut?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Sel tubuh mengekspresikan antigen spike, dipresentasikan oleh MHC Class I/II ke sel T CD4+/CD8+, sel B teraktivasi menjadi sel plasma penghasil antibodi spesifik dan membentuk sel B/T memori.</li>
+            <li class="option-item"><span class="option-label">B.</span> Molekul mRNA langsung menempel pada antibodi bebas di plasma darah, memicu pembelahan sel limfosit T tanpa perlu presentasi antigen.</li>
+            <li class="option-item"><span class="option-label">C.</span> Protein spike yang dihasilkan langsung menghancurkan sel fagosit, lalu merangsang makrofag berubah menjadi antibodi memori.</li>
+            <li class="option-item"><span class="option-label">D.</span> Vaksin mRNA mengaktifkan sistem komplemen secara permanen untuk memproduksi histamin tanpa melibatkan peran sel limfosit.</li>
+            <li class="option-item"><span class="option-label">E.</span> Sel T pembunuh langsung memakan molekul mRNA dan membelah menjadi sel plasma penghasil interferon tipe alfa.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(6)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-6">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Vaksin mRNA ditranslasi oleh sel tubuh menjadi protein spike (antigen). Antigen ini dipresentasikan melalui molekul MHC pada Antigen Presenting Cells (APC). Sel T Penolong (CD4+) mendeteksi antigen ini dan mengaktifkan Sel B untuk berdiferensiasi menjadi sel plasma (penghasil antibodi spesifik) serta Sel T Sitotoksik (CD8+). Sebagian sel B dan sel T berdiferensiasi menjadi sel memori yang memberikan perlindungan jangka panjang.
+            </div>
+        </div>
+    </div>
+
+    <!-- Soal 7 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 7</span>
+            <span class="topic-tag">Mekanisme Kerja Sistem Imun</span>
+        </div>
+        <div class="question-text">
+            Penyakit autoimun seperti Myasthenia gravis terjadi ketika sistem imun salah mengenali bagian dari tubuh sendiri sebagai benda asing. Pada penyakit ini, tubuh memproduksi autoantibodi yang menyerang reseptor asetilkolin pada membran pasca-sinapsis sambungan saraf-otot (neuromuscular junction). Apakah dampak fisiologis langsung dari gangguan imunologis tersebut?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Penghambatan transmisi sinyal saraf ke sel otot sehingga otot rangka tidak dapat berkontraksi dan mengalami kelemahan berat.</li>
+            <li class="option-item"><span class="option-label">B.</span> Peningkatan pelepasan asetilkolin yang berlebihan sehingga otot mengalami kejang permanen (tetani).</li>
+            <li class="option-item"><span class="option-label">C.</span> Kerusakan total pada sel Schwann sehingga impuls saraf melompat terlalu cepat menuju otak.</li>
+            <li class="option-item"><span class="option-label">D.</span> Degenerasi akson saraf sensorik yang menyebabkan hilangnya sensasi rasa nyeri secara total.</li>
+            <li class="option-item"><span class="option-label">E.</span> Penumpukan asam laktat yang ekstrem di dalam membran sel otot polos pembuluh darah.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(7)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-7">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Asetilkolin (ACh) adalah neurotransmiter yang dilepaskan neuron motorik untuk merangsang kontraksi otot rangka. Pada *Myasthenia gravis*, autoantibodi mengikat dan memblokir atau menghancurkan reseptor ACh di membran sel otot. Akibatnya, sinyal impuls saraf gagal ditransmisikan ke otot, memicu kelemahan dan kelelahan otot rangka yang progresif.
+            </div>
+        </div>
+    </div>
+
+    <!-- Soal 8 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 8</span>
+            <span class="topic-tag">Mekanisme Kerja Sistem Imun</span>
+        </div>
+        <div class="question-text">
+            Seseorang yang terpapar serbuk sari bunga tertentu mengalami reaksi alergi tipe cepat (hipersensitivitas Tipe I) dengan gejala bersin, mata berair, dan hidung tersumbat. Manakah urutan peristiwa imunologis yang paling tepat menjelaskan terjadinya respon alergi tersebut saat paparan kedua (re-eksposur)?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Allergen berikatan silang dengan antibodi IgE yang sudah tertancap di permukaan sel mast, memicu degranulasi dan pelepasan histamin yang memicu vasodilatasi serta peningkatan permeabilitas kapiler.</li>
+            <li class="option-item"><span class="option-label">B.</span> Allergen ditangkap oleh antibodi IgG di dalam sirkulasi, memicu lisis sel endotel hidung oleh sel Natural Killer secara langsung.</li>
+            <li class="option-item"><span class="option-label">C.</span> Sel T pembunuh menghancurkan mukosa hidung karena menganggap serbuk sari sebagai racun kimia pembawa mikroba.</li>
+            <li class="option-item"><span class="option-label">D.</span> Sel fagosit melepaskan hormon insulin berlebih yang menyebabkan vasokonstriksi lokal pembuluh darah hidung.</li>
+            <li class="option-item"><span class="option-label">E.</span> IgA disekresikan secara berlebih ke plasma darah sehingga menipiskan lapisan mukosa saluran pernapasan.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(8)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-8">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Pada paparan awal (sensitisasi), alergen merangsang sel B memproduksi antibodi IgE yang mengikat reseptor pada sel mast dan basofil. Pada paparan kedua, alergen berikatan silang dengan IgE pada permukaan sel mast. Hal ini merangsang degranulasi sel mast untuk melepaskan mediator kimia seperti histamin. Histamin menyebabkan vasodilatasi lokal, edema, dan hipersekresi mukus (gejala alergi).
+            </div>
+        </div>
+    </div>
+
+    <!-- Soal 9 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 9</span>
+            <span class="topic-tag">Mekanisme Kerja Sistem Imun</span>
+        </div>
+        <div class="question-text">
+            Infeksi virus Dengue yang kedua kali dengan serotipe yang berbeda dari infeksi pertama sering kali menyebabkan kondisi klinik yang jauh lebih parah, yang dikenal sebagai *Antibody-Dependent Enhancement* (ADE). Bagaimana mekanisme ADE ini terjadi secara imunologis?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Antibodi non-netralisasi dari infeksi pertama mengikat virus baru dan memfasilitasi masuknya virus ke dalam sel monosit/makrofag melalui reseptor Fc, memicu replikasi virus yang lebih masif.</li>
+            <li class="option-item"><span class="option-label">B.</span> Antibodi dari infeksi pertama secara langsung memakan sel-sel darah merah dan menurunkan pembekuan darah secara permanen.</li>
+            <li class="option-item"><span class="option-label">C.</span> Virus dengue serotipe baru memanfaatkan sel T memori sebagai inang utama untuk bermutasi menjadi parasit intraseluler.</li>
+            <li class="option-item"><span class="option-label">D.</span> Sistem imun non-spesifik menghentikan seluruh produksi leukosit karena kebingungan membedakan antigen.</li>
+            <li class="option-item"><span class="option-label">E.</span> Interferon yang diproduksi sel terinfeksi berikatan dengan sel endotel dan melarutkan plasma darah.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(9)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-9">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Pada ADE, antibodi sisa dari infeksi serotipe virus Dengue sebelumnya tidak mampu menetralisir serotipe virus Dengue yang baru. Sebaliknya, kompleks virus-antibodi tersebut berikatan dengan reseptor Fc-gamma pada sel makrofag/monosit, justru memfasilitasi virus untuk menginfeksi target sel imun lebih banyak. Hal ini menyebabkan jumlah virus meningkat pesat dan memicu badai sitokin yang memperparah kebocoran plasma.
+            </div>
+        </div>
+    </div>
+
+    <!-- Soal 10 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 10</span>
+            <span class="topic-tag">Mekanisme Kerja Sistem Imun</span>
+        </div>
+        <div class="question-text">
+            Pemberian serum antibodi monoklonal (antibisa ular) kepada seseorang yang baru saja digigit ular berbisa merupakan contoh bentuk imunitas...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Pasif buatan yang memberikan perlindungan instan tetapi tidak membentuk memori imunologis jangka panjang.</li>
+            <li class="option-item"><span class="option-label">B.</span> Aktif buatan yang merangsang tubuh membentuk sel B memori secara mandiri.</li>
+            <li class="option-item"><span class="option-label">C.</span> Pasif alami yang diperoleh melalui transfer imunoglobulin via plasenta.</li>
+            <li class="option-item"><span class="option-label">D.</span> Aktif alami yang terjadi akibat paparan patogen secara tidak sengaja di alam.</li>
+            <li class="option-item"><span class="option-label">E.</span> Non-spesifik bawaan yang meningkatkan aktivitas sel fagosit secara permanen.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(10)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-10">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Pemberian antibodi yang sudah jadi (seperti antibisa ular atau suntikan imunoglobulin) tergolong **Imunitas Pasif Buatan**. Kekebalan ini bekerja sangat cepat untuk menetralisir racun/antigen, tetapi karena sistem imun pasien tidak memproduksi antibodi itu sendiri, tidak terbentuk sel memori sehingga perlindungannya bersifat sementara.
+            </div>
+        </div>
+    </div>
+
+    <!-- Soal 11 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 11</span>
+            <span class="topic-tag">Sistem Saraf & Hormon</span>
+        </div>
+        <div class="question-text">
+            Tetrodotoksin (TTX) merupakan racun saraf mematikan yang ditemukan pada ikan buntal. Racun ini bekerja secara spesifik dengan cara memblokir kanal ion natrium terdepan voltase (voltage-gated sodium channels) pada akson neuron. Bagaimanakah efek fisiologis dari kerja racun ini terhadap penghantaran impuls saraf?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Menghambat depolarisasi membran sehingga potensial aksi tidak dapat terbentuk dan transmisi impuls saraf terhenti total.</li>
+            <li class="option-item"><span class="option-label">B.</span> Mencegah repolarisasi membran sehingga sel neuron berada dalam kondisi depolarisasi konstan.</li>
+            <li class="option-item"><span class="option-label">C.</span> Mempercepat pelepasan neurotransmiter di celah sinapsis hingga memicu over-eksitasi.</li>
+            <li class="option-item"><span class="option-label">D.</span> Menyebabkan ion kalium bocor keluar sel secara tidak terkontrol sehingga resting membrane potential menjadi positif.</li>
+            <li class="option-item"><span class="option-label">E.</span> Merusak selubung mielin sehingga aliran impuls melambat secara bertahap.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(11)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-11">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Pembentukan potensial aksi membutuhkan pembukaan *voltage-gated $Na^+$ channels* agar ion $Na^+$ masuk pesat ke dalam sel (depolarisasi). Jika kanal $Na^+$ diblokir oleh Tetrodotoksin, depolarisasi tidak dapat terjadi, potensial aksi gagal dibentuk, dan penghantaran impuls saraf (termasuk saraf motorik pernapasan) terhenti total, memicu kelumpuhan.
+            </div>
+        </div>
+    </div>
+
+    <!-- Soal 12 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 12</span>
+            <span class="topic-tag">Sistem Saraf & Hormon</span>
+        </div>
+        <div class="question-text">
+            Seorang individu tiba-tiba dikagetkan oleh suara ledakan keras. Dalam waktu singkat, jantungnya berdebar kencang, pupil matanya melebar (midriasis), dan mulutnya terasa kering. Perubahan fisiologis involuntar ini dikendalikan oleh...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Aktivasi sistem saraf simpatis yang melepaskan noradrenalin serta merangsang medula adrenal melepas adrenalin.</li>
+            <li class="option-item"><span class="option-label">B.</span> Aktivasi sistem saraf parasimpatis yang meningkatkan sekresi asetilkolin dari saraf vagus.</li>
+            <li class="option-item"><span class="option-label">C.</span> Inaktivasi total kelenjar hipofisis anterior yang menghentikan sekresi hormon kortisol.</li>
+            <li class="option-item"><span class="option-label">D.</span> Pelepasan hormon insulin berlebih oleh pankreas yang merangsang saraf somatik.</li>
+            <li class="option-item"><span class="option-label">E.</span> Penghambatan kerja serebelum dalam mengontrol refleks keseimbangan tubuh.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(12)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-12">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Kondisi stres akut atau ancaman memicu respon *"fight or flight"* yang diatur oleh **Sistem Saraf Simpatis**. Saraf simpatis melepaskan noradrenalin dan merangsang medula adrenal memproduksi epinefrin/adrenalin. Efek fisiologisnya meliputi dilatasi pupil, peningkatan denyut jantung/tekanan darah, penghambatan salivasi (mulut kering), dan inhibisi pencernaan.
+            </div>
+        </div>
+    </div>
+
+    <!-- Soal 13 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 13</span>
+            <span class="topic-tag">Sistem Saraf & Hormon</span>
+        </div>
+        <div class="question-text">
+            Penderita Diabetes Mellitus Tipe 1 tidak mampu memproduksi hormon insulin secara memadai akibat kerusakan autoimun pada sel beta pankreas. Bagaimanakah dampak langsung dari ketiadaan insulin ini terhadap metabolisme glukosa di sel otot dan sel lemak?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Translokasi transporter glukosa (GLUT4) ke membran sel terhambat sehingga intake glukosa oleh sel menurun drastis dan kadar glukosa darah melonjak (hiperglikemia).</li>
+            <li class="option-item"><span class="option-label">B.</span> Sel-sel otot menyerap glukosa secara berlebihan hingga mengalami pembengkakan glikogen (hipoglikemia).</li>
+            <li class="option-item"><span class="option-label">C.</span> Hati berhenti menguraikan glikogen dan mengubah seluruh glukosa darah menjadi asam amino.</li>
+            <li class="option-item"><span class="option-label">D.</span> Reabsorpsi glukosa di ginjal dihentikan total sehingga urin menjadi sangat asam.</li>
+            <li class="option-item"><span class="option-label">E.</span> Laju glikolisis di dalam sitoplasma meningkat 10 kali lipat secara spontaneous.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(13)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-13">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Insulin berikatan dengan reseptornya di sel target (otot dan adiposit) untuk memicu penyatuan vesikel penyimpan vesikel transporter GLUT4 ke membran plasma. Tanpa insulin, GLUT4 tetap berada di intraseluler, sehingga sel tidak dapat menyerap glukosa dari darah. Akibatnya, sel kelaparan energi sementara kadar glukosa dalam plasma darah tetap sangat tinggi (hiperglikemia).
+            </div>
+        </div>
+    </div>
+
+    <!-- Soal 14 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 14</span>
+            <span class="topic-tag">Sistem Saraf & Hormon</span>
+        </div>
+        <div class="question-text">
+            Proses pelepasan hormon tiroid dikendalikan oleh aksis Hipotalamus-Hipofisis-Tiroid melalui mekanisme umpan balik negatif. Apabila seseorang mengalami gangguan penyakit Graves (autoimun di mana antibodi meniru kerja hormon TSH dengan mengikat reseptor TSH di kelenjar tiroid), manakah profil kadar hormon yang paling akurat dalam darah pasien tersebut?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Kadar T3/T4 sangat tinggi, sedangkan kadar TRH dan TSH sangat rendah (tertekan).</li>
+            <li class="option-item"><span class="option-label">B.</span> Kadar T3/T4 sangat rendah, sedangkan kadar TSH dan TRH melambung tinggi.</li>
+            <li class="option-item"><span class="option-label">C.</span> Kadar TSH, TRH, dan T3/T4 semuanya meningkat secara bersamaan tanpa batas.</li>
+            <li class="option-item"><span class="option-label">D.</span> Kadar T3/T4 normal, tetapi kadar TRH meningkat drastis akibat stimulasi kelenjar adrenal.</li>
+            <li class="option-item"><span class="option-label">E.</span> Kadar TSH sangat tinggi tetapi kadar T3/T4 nol karena tiroid mengalami atrofi.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(14)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-14">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Pada penyakit *Graves*, autoantibodi (TSI) mengikat dan terus menerus mengaktifkan reseptor TSH di tiroid, memicu sekresi tiroksin ($T3/T4$) secara tidak terkontrol (hipertiroidisme). Tingginya kadar $T3/T4$ bebas di darah memberikan umpan balik negatif yang kuat ke hipotalamus dan hipofisis anterior, sehingga sekresi TRH dan TSH ditekan hingga mendekati nol.
+            </div>
+        </div>
+    </div>
+
+    <!-- Soal 15 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 15</span>
+            <span class="topic-tag">Sistem Saraf & Hormon</span>
+        </div>
+        <div class="question-text">
+            Obat antidepresan golongan *Selective Serotonin Reuptake Inhibitor* (SSRI) bekerja dengan cara menghambat protein pembalik (reuptake transporter) serotonin pada membran pra-sinapsis. Bagaimana pengaruh pemberian obat ini terhadap komunikasi kimiawi antar sel saraf di celah sinapsis?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Meningkatkan konsentrasi dan durasi keberadaan serotonin di celah sinapsis sehingga stimulasi reseptor pasca-sinapsis meningkat.</li>
+            <li class="option-item"><span class="option-label">B.</span> Menghentikan pelepasan vesikel neurotransmiter dari tombol pra-sinapsis secara permanen.</li>
+            <li class="option-item"><span class="option-label">C.</span> Mempercepat penghancuran serotonin oleh enzim monoamina oksidase di celah sinapsis.</li>
+            <li class="option-item"><span class="option-label">D.</span> Mengubah serotonin menjadi molekul asetilkolin yang memicu hiperpolarisasi.</li>
+            <li class="option-item"><span class="option-label">E.</span> Menyebabkan hilangnya seluruh reseptor serotonin pada dendrit pasca-sinapsis.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(15)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-15">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Setelah neurotransmiter (seperti serotonin) dilepaskan dan berikatan dengan reseptor pasca-sinapsis, sebagian akan ditarik kembali (*reuptake*) ke neuron pra-sinapsis. Penghambatan reuptake oleh SSRI membuat serotonin bertahan lebih lama dan dalam jumlah lebih banyak di celah sinapsis, meningkatkan aktivitas pencetus impuls positif pada neuron pasca-sinapsis.
+            </div>
+        </div>
+    </div>
+
+    <!-- Soal 16 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 16</span>
+            <span class="topic-tag">Sistem Reproduksi Manusia</span>
+        </div>
+        <div class="question-text">
+            Proses oogenesis pada wanita menghasilkan satu oosit sekunder dan fusi badan polar (polosit). Perbedaan mendasar dalam pembagian sitoplasma selama pembelahan meiosis I pada oogenesis dibandingkan spermatogenesis adalah...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Sitokinesis pada oogenesis berlangsung asimetris, menghasilkan satu sel oosit sekunder besar yang kaya cadangan makanan dan satu badan polar kecil.</li>
+            <li class="option-item"><span class="option-label">B.</span> Spermatogenesis menghasilkan sel yang tidak memiliki materi genetik kromosom sex.</li>
+            <li class="option-item"><span class="option-label">C.</span> Oogenesis menghasilkan empat sel fungsional yang siap dibuahi secara bersamaan.</li>
+            <li class="option-item"><span class="option-label">D.</span> Pembelahan meiosis pada spermatogenesis terhenti di fase Profase I hingga masa menopause.</li>
+            <li class="option-item"><span class="option-label">E.</span> Oosit sekunder tidak mengalami pembelahan meiosis II meskipun terjadi fertilisasi.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(16)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-16">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Pada oogenesis, pembelahan sitoplasma (sitokinesis) selama Meiosis I dan II terjadi secara sangat tidak seimbang (asimetris). Sebagian besar sitoplasma, organel, dan cadangan nutrisi dialokasikan ke satu sel (oosit sekunder / ovum) untuk menunjang kebutuhan awal embrio jika terjadi fertilisasi, sedangkan sel sisanya menjadi polosit (badan polar) degeneratif.
+            </div>
+        </div>
+    </div>
+
+    <!-- Soal 17 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 17</span>
+            <span class="topic-tag">Sistem Reproduksi Manusia</span>
+        </div>
+        <div class="question-text">
+            Pil kontrasepsi kombinasi (mengandung estrogen dan progesteron sintetis) efektif mencegah kehamilan. Bagaimanakah mekanisme hormonal utama dari pil ini dalam menggagalkan proses reproduksi?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Memberikan umpan balik negatif ke hipofisis anterior untuk menekan sekresi FSH dan LH sehingga tidak terjadi pematangan folikel dan ovulasi.</li>
+            <li class="option-item"><span class="option-label">B.</span> Merangsang lonjakan (*surge*) hormon LH secara terus menerus agar oosit hancur di dalam ovarium.</li>
+            <li class="option-item"><span class="option-label">C.</span> Meluruhkan dinding endometrium secara permanen sehingga sperma tidak bisa berenang.</li>
+            <li class="option-item"><span class="option-label">D.</span> Menghancurkan membran plasma sel sperma begitu memasuki vagina.</li>
+            <li class="option-item"><span class="option-label">E.</span> Mengubah oosit sekunder menjadi sel telur triploid yang tidak stabil.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(17)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-17">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Tingkat estrogen dan progesteron yang stabil tinggi dari pil kontrasepsi memberikan umpan balik negatif (*negative feedback*) ke hipotalamus dan hipofisis anterior. Hal ini menekan pelepasan GnRH, FSH (sehingga folikel tidak matang), dan LH (mencegah lonjakan LH pencetus ovulasi). Tanpa ovulasi, kehamilan tidak dapat terjadi.
+            </div>
+        </div>
+    </div>
+
+    <!-- Soal 18 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 18</span>
+            <span class="topic-tag">Sistem Reproduksi Manusia</span>
+        </div>
+        <div class="question-text">
+            Setelah proses fertilisasi terjadi di tuba falopi, zigot akan berkembang menjadi blastokista dan melakukan implantasi ke dalam endometrium uterus. Sel-sel trofoblas pada blastokista kemudian memproduksi hormon *human Chorionic Gonadotropin* (hCG). Apakah peran vital dari hormon hCG pada awal kehamilan tersebut?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Mempertahankan keberadaan korpus luteum agar tetap memproduksi progesteron dan estrogen untuk mencegah peluruhan endometrium.</li>
+            <li class="option-item"><span class="option-label">B.</span> Merangsang kontraksi otot miometrium uterus untuk mempermudah pergeseran embrio.</li>
+            <li class="option-item"><span class="option-label">C.</span> Memicu ginjal ibu melepaskan cairan amnion ke dalam rahim secara langsung.</li>
+            <li class="option-item"><span class="option-label">D.</span> Menghentikan pasokan nutrisi maternal agar embrio bertumbuh secara mandiri.</li>
+            <li class="option-item"><span class="option-label">E.</span> Menstimulasi ovarium untuk segera mematangkan sel telur baru.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(18)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-18">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Hormon hCG dikeluarkannya sel trofoblas blastokista berfungsi menjaga agar *korpus luteum* tidak berdegenerasi (menjadi korpus albikans). Korpus luteum yang bertahan terus mensekresi estrogen dan progesteron tinggi untuk mempertahankan ketebalan dinding endometrium, mencegah menstruasi, dan menunjang kehamilan awal hingga plasenta mengambil alih peran tersebut.
+            </div>
+        </div>
+    </div>
+
+    <!-- Soal 19 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 19</span>
+            <span class="topic-tag">Sistem Reproduksi Manusia</span>
+        </div>
+        <div class="question-text">
+            Proses spermatogenesis di dalam tubulus seminiferus testis sangat bergantung pada dukungan sel Sertoli dan sel Leydig. Jika seorang pria mengalami kegagalan fungsi sel Leydig akibat infeksi atau trauma, apakah dampak langsung terhadap proses pembentukan sperma?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Penurunan produksi hormon testosteron secara drastis, sehingga diferensiasi dan pematangan spermatogonium menjadi spermatozoa terganggu berat.</li>
+            <li class="option-item"><span class="option-label">B.</span> Hilangnya kemampuan sel sperma untuk bergerak karena kekurangan energi ATP dari duktus epididimis.</li>
+            <li class="option-item"><span class="option-label">C.</span> Peningkatan sekresi hormon FSH yang menyebabkan kelenjar prostat membesar spontan.</li>
+            <li class="option-item"><span class="option-label">D.</span> Kerusakan total pada akrosom sperma sehingga sperma membelah secara amitosis.</li>
+            <li class="option-item"><span class="option-label">E.</span> Terhentinya fungsi nutrisi sel Sertoli yang menyebabkan cairan semen menjadi sangat padat.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(19)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-19">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Sel Leydig (sel interstitial) di testis merespons hormon LH dengan memproduksi androgen utama, yaitu **Testosteron**. Testosteron sangat dibutuhkan bersama FSH (yang merangsang sel Sertoli) untuk mendorong dan mempertahankan tahapan spermatogenesis. Kerusakan sel Leydig menurunkan kadar testosteron secara signifikan, menyebabkan gangguan pembentukan sperma (azoospermia/oligozoospermia).
+            </div>
+        </div>
+    </div>
+
+    <!-- Soal 20 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 20</span>
+            <span class="topic-tag">Sistem Reproduksi Manusia</span>
+        </div>
+        <div class="question-text">
+            Endometriosis adalah suatu kondisi medis di mana jaringan endometrium tumbuh di luar kavum uteri (misalnya di ovarium atau tuba falopi). Mengapa kondisi ini sering kali menimbulkan rasa nyeri hebat saat menstruasi dan dapat memicu infertilitas?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Jaringan ektopik tersebut tetap merespons perubahan hormon estrogen-progesteron dengan penebalan dan pendarahan, memicu inflamasi, jaringan parut, serta penyumbatan tuba falopi.</li>
+            <li class="option-item"><span class="option-label">B.</span> Sel-sel endometrium ektopik memakan oosit sekunder sebelum sempat dilepaskan dari folikel De Graaf.</li>
+            <li class="option-item"><span class="option-label">C.</span> Terjadi pelepasan toksin kimia yang menghentikan fungsi pembelahan meiosis pada sel telur.</li>
+            <li class="option-item"><span class="option-label">D.</span> Jaringan endometrium yang salah tempat menghancurkan suplai darah menuju kelenjar hipofisis anterior.</li>
+            <li class="option-item"><span class="option-label">E.</span> Hormon progesterone berubah sifat menjadi destruktif terhadap pembuluh darah miometrium.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(20)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-20">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Jaringan endometrium ektopik (di luar rahim) memiliki reseptor hormon yang sama dengan endometrium normal. Saat siklus menstruasi, jaringan ini menebal dan luruh/berdarah. Namun karena darah tidak memiliki jalan keluar, timbul peradangan lokal, pembentukan jaringan parut (adhesi), dan rasa nyeri hebat. Adhesi ini dapat menyumbat tuba falopi atau merusak struktur ovarium, memicu infertilitas.
+            </div>
+        </div>
+    </div>
+
+    <!-- Soal 21 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 21</span>
+            <span class="topic-tag">Sistem Saraf & Hormon</span>
+        </div>
+        <div class="question-text">
+            Penyakit Diabetes Insipidus ditandai dengan produksi urine yang sangat melimpah (polyuria) dan rasa haus berlebih (polydipsia). Kondisi ini disebabkan oleh kegagalan sintesis atau sekresi Anti-Diuretic Hormone (ADH) oleh sistem hipotalamus-hipofisis. Bagaimanakah dampak kerusakan ini pada tingkat seluler ginjal?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Gagalnya penyisipan saluran air (Aquaporin-2) pada membran sel epitel tubulus pengumpul (collecting duct), sehingga air tidak dapat direabsorpsi kembali ke sirkulasi darah.</li>
+            <li class="option-item"><span class="option-label">B.</span> Terhentinya fungsi filtrasi pada kapsula Bowman sehingga seluruh plasma darah langsung terbuang ke ureter.</li>
+            <li class="option-item"><span class="option-label">C.</span> Peningkatan reabsorpsi natrium yang berlebihan di ansa Henle bagian tebal.</li>
+            <li class="option-item"><span class="option-label">D.</span> Kerusakan pada sel-sel juxtaglomerulus yang menghentikan pembentukan eritrosit.</li>
+            <li class="option-item"><span class="option-label">E.</span> Pengendapan kristal asam urat yang menyumbat lumen tubulus kontortus proksimal.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(21)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-21">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                ADH bekerja dengan cara berikatan pada reseptor V2 di tubulus distal dan tubulus pengumpul ginjal, merangsang pemindahan protein saluran air (**Aquaporin-2**) ke membran luminal. Tanpa ADH, membran tetap tidak permeabel terhadap air, sehingga air tidak dapat direabsorpsi secara osmotik dan terbuang dalam jumlah sangat besar sebagai urine yang sangat encer.
+            </div>
+        </div>
+    </div>
+
+    <!-- Soal 22 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 22</span>
+            <span class="topic-tag">Integrasi Sirkulasi - Respirasi - Ekskresi</span>
+        </div>
+        <div class="question-text">
+            Pendaki gunung yang naik ke dataran sangat tinggi (altitudo tinggi) mengalami penurunan tekanan parsial oksigen di udara secara drastis. Sebagai bentuk aklimatisasi fisiologis dalam jangka waktu beberapa hari hingga minggu, tubuh akan melakukan penyesuaian berupa...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Peningkatan pelepasan eritropoietin (EPO) oleh ginjal untuk merangsang pembentukan eritrosit baru di sumsum tulang, meningkatkan kapasitas pengangkutan oksigen darah.</li>
+            <li class="option-item"><span class="option-label">B.</span> Penurunan denyut jantung dan penurunan laju ventilasi paru-paru untuk menghemat energi.</li>
+            <li class="option-item"><span class="option-label">C.</span> Penghentian total proses glikolisis seluler dan beralih ke respirasi anaerobik permanen.</li>
+            <li class="option-item"><span class="option-label">D.</span> Peleburan sel darah putih menjadi molekul hemoglobin tambahan di dalam limpa.</li>
+            <li class="option-item"><span class="option-label">E.</span> Penurunan jumlah kapiler darah di dalam jaringan otot rangka.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(22)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-22">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Pada dataran tinggi, hipoksia jaringan dideteksi oleh sel-sel ginjal. Ginjal merespons dengan meningkatkan produksi hormon **eritropoietin (EPO)**. EPO memicu sumsum tulang merah memproduksi lebih banyak sel darah merah (polisitemia sekunder kompensatorik), sehingga konsentrasi hemoglobin darah meningkat untuk mengikat oksigen terbatas di udara tipis.
+            </div>
+        </div>
+    </div>
+
+    <!-- Soal 23 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 23</span>
+            <span class="topic-tag">Mekanisme Kerja Sistem Imun</span>
+        </div>
+        <div class="question-text">
+            Bakteri *Mycobacterium tuberculosis* mampu bertahan hidup dan berkembang biak di dalam sel makrofag alveolar paru-paru setelah difagositosis. Mekanisme utama yang digunakan oleh patogen ini untuk meloloskan diri dari penghancuran oleh sistem imun non-spesifik seluler adalah...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Mencegah fusi antara fagosom (vesikel pembawa bakteri) dengan lisosom di dalam sitoplasma makrofag.</li>
+            <li class="option-item"><span class="option-label">B.</span> Mengubah membran makrofag menjadi dinding sel polisakarida tebal.</li>
+            <li class="option-item"><span class="option-label">C.</span> Mensekresikan antibodi IgA untuk menetralisir enzim lisozim.</li>
+            <li class="option-item"><span class="option-label">D.</span> Mengikat seluruh molekul hemoglobin di dalam kapiler paru.</li>
+            <li class="option-item"><span class="option-label">E.</span> Memicu pembelahan cepat sel T pembunuh sebelum terdeteksi.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(23)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-23">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                *Mycobacterium tuberculosis* dapat menghambat fusi antara vesikel fagositosis (fagosom) dan vesikel hidrolitik (lisosom). Akibatnya, fagolisosom tidak terbentuk dan enzim hidrolitik lisosom serta spesies oksigen reaktif gagal memusnahkan bakteri tersebut, memungkinkannya bertahan dan membelah di dalam makrofag.
+            </div>
+        </div>
+    </div>
+
+    <!-- Soal 24 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 24</span>
+            <span class="topic-tag">Sistem Saraf & Hormon</span>
+        </div>
+        <div class="question-text">
+            Diabetik Ketoasidosis (DKA) merupakan komplikasi akut berbahaya pada penderita Diabetes Mellitus Tipe 1. Ketiadaan insulin memaksa tubuh menguraikan lemak secara berlebihan sebagai sumber energi alternatif. Penumpukan benda keton (asam asetoasetat dan beta-hidroksibutirat) di dalam darah memicu terjadinya...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Asidosis metabolik yang direspons oleh paru-paru berupa pernapasan cepat dan dalam (pernapasan Kussmaul) untuk mengeluarkan CO2.</li>
+            <li class="option-item"><span class="option-label">B.</span> Alkalosis respiratorik yang menyebabkan ginjal menahan seluruh ion bikarbonat.</li>
+            <li class="option-item"><span class="option-label">C.</span> Penurunan frekuensi denyut jantung hingga di bawah batas normal (bradikardia berat).</li>
+            <li class="option-item"><span class="option-label">D.</span> Peningkatan pH darah di atas 7,8 yang memicu henti napas parsial.</li>
+            <li class="option-item"><span class="option-label">E.</span> Pembentukan sel darah merah berukuran raksasa tanpa inti sel.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(24)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-24">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Benda keton bersifat asam organik kuat. Akumulasinya di darah menurunkan pH darah (asidosis metabolik). Tubuh berusaha membuang kelebihan asam ini melalui sistem pernapasan: pusat pernapasan di medula oblongata terstimulasi untuk memicu **Pernapasan Kussmaul** (hiperventilasi sangat dalam dan cepat) guna membuang $CO2$ sebanyak-banyaknya untuk menaikkan pH darah kembali.
+            </div>
+        </div>
+    </div>
+
+    <!-- Soal 25 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 25</span>
+            <span class="topic-tag">Sistem Reproduksi Manusia</span>
+        </div>
+        <div class="question-text">
+            Oksitosin adalah hormon yang disintesis di hipotalamus dan dilepaskan oleh hipofisis posterior. Selama proses persalinan (partus), pelepasan oksitosin dikendalikan oleh mekanisme umpan balik positif (*positive feedback loop*). Bagaimanakah urutan siklus mekanisme ini bekerja hingga bayi lahir?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Peregangan serviks oleh kepala bayi mengirim sinyal saraf ke otak -> hipofisis melepas oksitosin -> oksitosin merangsang kontraksi uterus lebih kuat -> serviks makin meregang -> pelepasan oksitosin makin bertambah.</li>
+            <li class="option-item"><span class="option-label">B.</span> Oksitosin menekan sekresi hormon progesteron -> dinding rahim luruh -> hipofisis menghentikan kontraksi miometrium secara mendadak.</li>
+            <li class="option-item"><span class="option-label">C.</span> Kadar estrogen yang turun drastis memicu pemotongan tali pusat secara alami oleh cairan amnion.</li>
+            <li class="option-item"><span class="option-label">D.</span> Kontraksi uterus menekan hipotalamus untuk menghentikan sekresi oksitosin dan menggantikannya dengan prolaktin.</li>
+            <li class="option-item"><span class="option-label">E.</span> Oksitosin mereabsorpsi air dari rahim ke kandung kemih untuk melicinkan jalan lahir.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(25)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-25">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Proses persalinan memanfaatkan umpan balik positif: Dorongan kepala bayi meregangkan serviks. Reseptor regang mengirim sinyal ke otak untuk memicu pelepasan oksitosin. Oksitosin merangsang otot polos uterus (miometrium) berkontraksi lebih kuat. Kontraksi ini mendorong bayi lebih kuat dan meningkatkan peregangan serviks, yang memperbanyak pelepasan oksitosin lanjutan hingga kelahiran selesai.
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function toggleExplanation(id) {
+        const box = document.getElementById('exp-' + id);
+        if (box.classList.contains('active')) {
+            box.classList.remove('active');
+        } else {
+            box.classList.add('active');
+        }
+    }
+
+    function toggleAllExplanations() {
+        const boxes = document.querySelectorAll('.explanation-box');
+        const anyHidden = Array.from(boxes).some(box => !box.classList.contains('active'));
+        
+        boxes.forEach(box => {
+            if (anyHidden) {
+                box.classList.add('active');
+            } else {
+                box.classList.remove('active');
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
